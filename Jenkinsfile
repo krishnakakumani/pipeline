@@ -1,8 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('Pipeline') {
             steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'Default', submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/krishnakakumani/hello-world.git']]])
                 echo 'Hello World from pipeline'
             }
         }
